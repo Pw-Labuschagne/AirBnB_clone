@@ -4,8 +4,10 @@ import models
 from uuid import uuid4
 from datetime import datetime
 
+
 class BaseModel:
-    """ 
+
+    """
         Attributes:
             id (string) = Assign with uuid
             created_at (datetime) = Assign with current date and time when
@@ -15,25 +17,27 @@ class BaseModel:
             __str__ (string) = Should print [<class name>] (<self.id>)
                                <self.__dict__>
         Methods:
-            Save(self) = Update public instance attribute updated_at with 
-                current datetime
+            Save(self) = Update public instance attribute updated_at with
+            current datetime
             to_dict(self) = Returns dictonary containing all keys/values
                 of __dict__ of instance
     """
     def __init__(self, *args, **kwargs):
-        """Instance of BaseModel"""
+        """Instance of BaseModel
+            constructor of basemodel = *args and **kwargs
+        """
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
+
         if kwargs:
             for key, value in kwargs.items():
-                if key == '__class__':
-                    continue
-                if key == ['created_at', 'updated_at']:
-                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                self.__setattr(kry, value)
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                else:
+                    self.__dict__[key] = value
         else:
-            self.id = str(uuid4())
-            self.created_at = datetime.today()
-            self.updated_at = datetime.today()
-            #models.storage.save()
+            models.storage.new(self)
 
     def save(self):
         """
@@ -41,7 +45,7 @@ class BaseModel:
             current datetime
         """
         self.updated_at = datetime.today()
-        #models.storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """
@@ -65,4 +69,3 @@ class BaseModel:
         """Print method"""
         clsname = self.__class__.__name__
         return("[{}] ({}) {}".format(clsname, self.id, self.__dict__))
-        
