@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """Base model that defines all common attributes/methods for other classes"""
+import models
+from uuid import uuid4
+from datetime import datetime
 
 class BaseModel:
     """ 
@@ -17,12 +20,49 @@ class BaseModel:
             to_dict(self) = Returns dictonary containing all keys/values
                 of __dict__ of instance
     """
-    def __init__(self, name, id):
+    def __init__(self, *args, **kwargs):
         """Instance of BaseModel"""
-        self.name = name
-        self.id = uuid.uuid4()
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == '__class__':
+                    continue
+                if key == ['created_at', 'updated_at']:
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                self.__setattr(kry, value)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
+            #models.storage.save()
+
+    def save(self):
+        """
+            Used to save public instance attribute updated_at with
+            current datetime
+        """
+        self.updated_at = datetime.today()
+        #models.storage.save()
+
+    def to_dict(self):
+        """
+            Used to return dictonary containing all keys/values
+            of __dict__ of instance:
+            Using self.__dict__ = only instance attr will be returned
+            a key __class__ must be added to dictonary with class anme of obj
+
+            created_at and updated_at must be converted to ISO format:
+            %Y-%m-%dT%H:%M:%S.%f ex. 2017-06-14T22:31:03.285259
+            We can use isoformat() for datetime obj
+        """
+        ndict = self.__dict__.copy()
+        ndict["created_at"] = self.created_at.isoformat()
+        ndict["updated_at"] = self.updated_at.isoformat()
+        ndict["__class__"] = self.__class__.__name__
+
+        return ndict
 
     def __str__(self):
         """Print method"""
-        print("[{}] ({}) {}".format(self.name, self.id, self.__dict__))
+        clsname = self.__class__.__name__
+        return("[{}] ({}) {}".format(clsname, self.id, self.__dict__))
         
