@@ -58,10 +58,13 @@ It would look something like this:
 Documented commands (type help \<topic\>):
 
 ==========================================================
+
 EOF  all  clear  create  destroy  help  quit  show  update
 
 (hbnb)
+
 (hbnb)quit
+
 $
 
 To use functions one simply put the function name and an argument which is tied to the function.
