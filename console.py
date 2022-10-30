@@ -14,6 +14,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 
+
 def parser(argu):
     """Main parsing fucntion for CLI"""
 
@@ -29,20 +30,16 @@ def parser(argu):
             arg.append(The_curly.group())
             return arg
 
+
 class HBNBCommand(cmd.Cmd):
     """The base class for the console"""
+
     intro = "Welcome to my self written CLI from pYTHON3"""
     prompt = '(hbnb)'
 
-    __Valid_Classes = {"BaseModel",
-                     "User",
-                     "Review",
-                     "Place",
-                     "State",
-                     "City",
-                     "Amenity"
-                     }
-    
+    __Valid_Classes = {"BaseModel", "User", "Review", "Place", "State",
+                       "City", "Amenity"}
+
     def do_EOF(self, argu):
         """
         The EOF function used to exit the CLI\n
@@ -66,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in HBNBCommand.__Valid_Classes:
             print("** class doesn't exist **")
         else:
-            print(eval(args[0]().id))
+            print(eval(args[0])().id)
             storage.save()
 
     def do_show(self, argu):
@@ -75,16 +72,24 @@ class HBNBCommand(cmd.Cmd):
         based on class name and id.\n
         """
 
-    def  do_destroy(self, argu):
+    def do_destroy(self, argu):
         """
         Command used to delete an instance based on class name and id\n
         """
 
-    def do_all(self):
+    def do_all(self, argu):
         """
         Command used to print all string representations of an instance
         based or not on the class name.\n
         """
+        args = parser(argu)
+
+        if len(args) != 0 and args[0] not in HBNBCommand.__Valid_Classes:
+            print("** class doesn't exist **")
+        """else:
+            Obj_found = []
+            for Obj_found in storage.all().values():
+                if len(args) > 0 and args[0] == Obj_found.__Valid_Classes"""
 
     def do_update(self, argu):
         """
@@ -93,8 +98,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_clear(self, clear):
         """Function used to clear screen"""
-        self.clear = clear
-
         _ = system('clear')
 
     def emptyline(self):
@@ -108,6 +111,6 @@ class HBNBCommand(cmd.Cmd):
         Help display fucntion used in our cli
         """
 
-    
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

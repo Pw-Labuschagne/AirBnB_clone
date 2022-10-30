@@ -2,6 +2,7 @@
 """Review instance of basemodel"""
 from models.base_model import BaseModel
 
+
 class Review:
     """Defines reviews made on location
         Attributes:

@@ -111,6 +111,6 @@ To use functions one simply put the function name and an argument which is tied 
 
 Some examples are:
 
-$./console.py
+	$./console.py
 
 

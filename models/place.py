@@ -2,6 +2,7 @@
 """All possible places"""
 from models.base_model import BaseModel
 
+
 class Place:
     """Plublic instance of the place with
         Attributes:

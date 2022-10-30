@@ -24,7 +24,7 @@ class FileStorage:
 
     __file_path = 'file.json'
     __objects = {}
-    
+
     def all(self):
         """Returns the dictionary of __objects"""
         return type(self).__objects
@@ -42,17 +42,18 @@ class FileStorage:
 
         with open(self.__file_path, mode='w', encoding='utf-8') as new_file:
             json.dump(new_dict, new_file)
-            
+
     def reload(self):
         """Deserializes JSON fileto __objects, only if JSON
             file(__file_path) exists, else if file doesn't
             exists no exceptions should be raised"""
         try:
-            with open(self.__file_path, mode='r', encoding='utf-8') as reload_file:
+            with open(self.__file_path, mode='r',
+                      encoding='utf-8') as reload_file:
                 all_objs = json.load(reload_file)
 
                 for key, value in all_objs.items():
-                      class_names = value['__class__']
-                      self.__objects[key] = eval(class_names)(**value)
+                    class_names = value['__class__']
+                    self.__objects[key] = eval(class_names)(**value)
         except FileNotFoundError:
             pass

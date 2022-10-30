@@ -1,1 +1,19 @@
 #This file lists all individuals having contributed content to the repository.
+any and all work recored done by following people:
+Sole contribution done by PW Labuschagne
+
+Contributions:
+
+console.py file
+models file:
+	amenity.py
+	city.py
+	__init__.py
+	place.py
+	review.py
+	state.py
+	user.py
+git push file
+engine file:
+	__init__.py
+	file_storage.py

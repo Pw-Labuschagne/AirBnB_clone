@@ -2,6 +2,7 @@
 """Defines the amenities of the certain instance of basemodel"""
 from models.base_model import BaseModel
 
+
 class Amenity:
     """Defines the amenity
         Attributes:

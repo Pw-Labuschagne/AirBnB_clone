@@ -2,6 +2,7 @@
 """City in which the instance of basemodel is located"""
 from models.base_model import BaseModel
 
+
 class City:
     """Defines the city
             Attributes:
