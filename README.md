@@ -18,6 +18,61 @@ We will be able to :
 
 The CLI would be used as such:
 
+Interactive mode:
+
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+
+========================================
+
+EOF  help  quit
+
+(hbnb) 
+
+(hbnb) 
+
+(hbnb) quit
+
+$
+
+Non-interactive mode:
+
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+
+========================================w
+
+EOF  help  quit
+
+(hbnb) 
+
+$
+
+$ cat test\_help
+
+help
+
+$
+
+$ cat test\_help | ./console.py
+
+(hbnb)
+
+Documented commands (type help \<topic\>):
+
+========================================
+
+
+EOF  help  quit
+
+(hbnb) 
+
+$
+
 My command interpreter implements:
 
 	quit and EOF to exit the program
