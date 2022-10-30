@@ -56,13 +56,21 @@ Non-interactive mode:
 My command interpreter implements:
 
 #.quit and EOF to exit the program
+
 #.help (this action is provided by default by cmd but you should keep it updated and documented as you work through tasks)
+
 #.a custom prompt: (hbnb)
+
 #.an empty line + ENTER shouldn’t execute anything
+
 #.create: Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
+
 #.show: Prints the string representation of an instance based on the class name and id
+
 #.destroy: Deletes an instance based on the class name and id (save the change into the JSON file)
+
 #.all: Prints all string representation of all instances based or not on the class name.
+
 #.update: Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)
 
 We can assume the following rules:
