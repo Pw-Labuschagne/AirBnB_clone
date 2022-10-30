@@ -20,22 +20,16 @@ The CLI would be used as such:
 
 Interactive mode:
 
-$ ./console.py
-(hbnb) help
+	$ ./console.py
+	(hbnb) help
+	Documented commands (type help <topic>):
 
-Documented commands (type help <topic>):
-
-========================================
-
-EOF  help  quit
-
-(hbnb) 
-
-(hbnb) 
-
-(hbnb) quit
-
-$
+	========================================
+	EOF  help  quit
+	(hbnb) 
+	(hbnb)
+	(hbnb) quit
+	$
 
 Non-interactive mode:
 
