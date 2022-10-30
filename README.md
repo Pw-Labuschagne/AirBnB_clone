@@ -18,6 +18,26 @@ We will be able to :
 
 The CLI would be used as such:
 
+My command interpreter implements:
+
+	quit and EOF to exit the program
+	help (this action is provided by default by cmd but you should keep it updated and documented as you work through tasks)
+	a custom prompt: (hbnb)
+	an empty line + ENTER shouldn’t execute anything
+	create: Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
+	show: Prints the string representation of an instance based on the class name and id
+	destroy: Deletes an instance based on the class name and id (save the change into the JSON file)
+	all: Prints all string representation of all instances based or not on the class name.
+	update: Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)
+
+We can assume the following rules:
+
+You can assume arguments are always in the right order
+Each arguments are separated by a space
+A string argument with a space must be between double quote
+The error management starts from the first argument to the last one
+
+=============================================================================================================================================
 To start the CLI we use the command ./console.py
 This is a executable file used to run the console (CLI) program.
 Example:
@@ -33,16 +53,19 @@ Typing this command will list the available commands to assist you to use the co
 It would look something like this:
 
 (hbnb)help
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
+
+Documented commands (type help \<topic\>):
+==========================================================
+EOF  all  clear  create  destroy  help  quit  show  update
 
 (hbnb)
 (hbnb)quit
 $
 
-There will also be other commands avaiable such as create, show, destroy, all and update.
-More on the use and examples of that later on.
+To use functions one simply put the function name and an argument which is tied to the function.
 
-/*CONTINUE README>CMD>USAGE/EXAMPLES HERE*/
+Some examples are:
+
+$./console.py
+
 
