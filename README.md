@@ -39,39 +39,25 @@ $
 
 Non-interactive mode:
 
-$ echo "help" | ./console.py
-(hbnb)
+	$ echo "help" | ./console.py
+	(hbnb)
+	Documented commands (type help <topic>):
 
-Documented commands (type help <topic>):
+	========================================
+	EOF  help  quit
+	(hbnb) 
+	$
+	$ cat test\_help
+	help
+	$
+	$ cat test\_help | ./console.py
+	(hbnb)
+	Documented commands (type help \<topic\>):
 
-========================================w
-
-EOF  help  quit
-
-(hbnb) 
-
-$
-
-$ cat test\_help
-
-help
-
-$
-
-$ cat test\_help | ./console.py
-
-(hbnb)
-
-Documented commands (type help \<topic\>):
-
-========================================
-
-
-EOF  help  quit
-
-(hbnb) 
-
-$
+	========================================
+	EOF  help  quit
+	(hbnb)
+	$
 
 My command interpreter implements:
 
