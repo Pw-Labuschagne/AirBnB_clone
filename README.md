@@ -73,6 +73,8 @@ My command interpreter implements:
 
 #.update: Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)
 
+
+
 We can assume the following rules:
 
 You can assume arguments are always in the right order
@@ -86,9 +88,9 @@ To start the CLI we use the command ./console.py
 This is a executable file used to run the console (CLI) program.
 Example:
 
-$./console.py
-(hbnb)
-(hbnb)
+	$./console.py
+	(hbnb)
+	(hbnb)
 
 Using the CLI:
 
@@ -96,19 +98,14 @@ There are several usages of the console (CLI), but the most common one touse wou
 Typing this command will list the available commands to assist you to use the console.
 It would look something like this:
 
-(hbnb)help
+	(hbnb)help
+	Documented commands (type help \<topic\>):
 
-Documented commands (type help \<topic\>):
-
-==========================================================
-
-EOF  all  clear  create  destroy  help  quit  show  update
-
-(hbnb)
-
-(hbnb)quit
-
-$
+	==========================================================
+	EOF  all  clear  create  destroy  help  quit  show  update
+	(hbnb)
+	(hbnb)quit
+	$
 
 To use functions one simply put the function name and an argument which is tied to the function.
 
