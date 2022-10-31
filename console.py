@@ -71,11 +71,38 @@ class HBNBCommand(cmd.Cmd):
         Command used to print string representation of an instance
         based on class name and id.\n
         """
+        args = parser(argu)
+        content = storage.all()
+
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.__Valid_Classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(args[0], args[1]) not in content:
+            print("** no instance found **")
+        else:
+            print(content["{}.{}".format(args[0], args[1])])
 
     def do_destroy(self, argu):
         """
         Command used to delete an instance based on class name and id\n
         """
+        args = parser(argu)
+        content = storage.all()
+
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.__Valid_Classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(args[0], args[1]) not in content:
+            print("** no instance found **")
+        else:
+            del content["{}.{}".format(args[0], args[1])]
+            storage.save()
 
     def do_all(self, argu):
         """
@@ -83,18 +110,48 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name.\n
         """
         args = parser(argu)
+        content = storage.all()
 
         if len(args) != 0 and args[0] not in HBNBCommand.__Valid_Classes:
             print("** class doesn't exist **")
-        """else:
-            Obj_found = []
-            for Obj_found in storage.all().values():
-                if len(args) > 0 and args[0] == Obj_found.__Valid_Classes"""
-
+        else:
+            Obj_Found = []
+            for Content in storage.all().values():
+                if len(args) > 0 and args[0] == Content.__class__.__name__:
+                    Obj_Found.append(Content.__str__())
+                elif len(args) == 0:
+                    Obj_Found.append(Content.__str__())
+            print(Obj_Found)
+                    
     def do_update(self, argu):
         """
         Command used to update an instance based on class name and id.\n
         """
+        F = False
+        args = parser(argu)
+        content = storage.all()
+        
+        if len(args) == 0:
+            print("** class name missing **")
+            return F
+        elif args[0] not in HBNBCommand.__Valid_Classes:
+            print("** class doesn't exist **")
+            return F
+        elif len(args) == 1:
+            print("** instance id missing **")
+            return F
+        elif "{}.{}".format(args[0], args[1]) not in content.keys():
+            print("** no instance found **")
+            return F
+        elif len(args) == 2:
+            print("** attribute name missing **")
+            return F
+        elif len(args) == 3:
+            try:
+                type(eval(args[2])) != dict
+            except ValueError:
+                print("** value missing **")
+                return F
 
     def do_clear(self, clear):
         """Function used to clear screen"""
