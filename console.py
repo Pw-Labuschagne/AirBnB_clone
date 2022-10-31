@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 elif len(args) == 0:
                     Obj_Found.append(Content.__str__())
             print(Obj_Found)
-                    
+
     def do_update(self, argu):
         """
         Command used to update an instance based on class name and id.\n
@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         F = False
         args = parser(argu)
         content = storage.all()
-        
+
         if len(args) == 0:
             print("** class name missing **")
             return F
