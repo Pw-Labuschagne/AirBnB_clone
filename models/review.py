@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class Review:
+class Review(BaseModel):
     """Defines reviews made on location
         Attributes:
             place_id (string) = Id of the place

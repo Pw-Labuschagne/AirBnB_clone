@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class Place:
+class Place(BaseModel):
     """Plublic instance of the place with
         Attributes:
             city_id (string) = City.id

@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class City:
+class City(BaseModel):
     """Defines the city
             Attributes:
                 state_id (string) = Used as a refrence to city

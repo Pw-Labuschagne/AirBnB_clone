@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class State:
+class State(BaseModel):
     """Defines the state of location
         Attributes:
             name (string) = State name
