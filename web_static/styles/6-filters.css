@@ -7,6 +7,7 @@
         align-items: center;
         text-align: right;
 }
+
 section.filters button{
         font-size: 18px;
         background-color: #FF5A5F;
@@ -20,6 +21,7 @@ section.filters button{
         opacity: 1;
 
 }
+
 section.filters button:hover{
         opacity: 0.9;
 }
@@ -30,51 +32,78 @@ section.filters button:hover{
 	width: 25%;
 	border-right: 1px solid #DDDDDD;
 	float: left;
-	margin-left: 30px;
+	margin: 0px;
 }
+
 .amenities{
 	text-align: left;
         height: 100%;
         width: 25%;
         float: left;
-	margin-left: 30px;
+	margin-top: 0px;
 }
+
 h3{
+	padding: 0px;
 	font-weight: 600;
 	margin: 0px;
 	margin-top: 17px;
+	padding-left: 30px;
 }
+
 h4{
+	margin: 0px;
+	padding: 0px;
 	font-weight: 400;
 	margin: 0px;
 	font-size: 14px;
+	padding-left: 30px;
 }
+
 .popover{
 	visibility: hidden;
 	background-color:#FAFAFA;
-	border: 1px solid #DDDDDD;
+	margin-top: 16px;
+	border: solid #DDDDDD 1px;
 	border-radius: 4px;
 	position: relative;
+	padding-bottom: 10%;
+}
 
-}
 .popover li, h2{
-	padding: ;
-	margin: 0;
+	padding: 0px;
+	margin: 0px;
 }
-.pop_list{
-	padding: 0;
-	margin: 0;
+
+.pop_list_1{
+	padding: 0px;
+	padding-left: 30px;
+	padding-bottom: 15px;
 }
+
+.pop_list_2{
+	padding: 0px;
+	padding-left: 7%;
+	padding-bottom: 10px;
+}
+
 ul{
-	list-style: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
+
 li{
+	padding-top: 10px;
 	list-style: none;
 	padding-bottom: 5%;
 }
+
 .locations:hover > .popover{
 	visibility: visible;
+	padding: 20px;
 }
+
 .amenities:hover > .popover{
+	padding: 20px;
 	visibility: visible;
 }
